@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Task</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/task/save/{lessonId}(lessonId=${lessonId})}" th:object="${newTask}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="taskName" th:field="*{taskName}">
+        <label for="taskName">Task Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="taskText" th:field="*{taskText}">
+        <label for="taskText">Task Text</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="deadline" th:field="*{deadline}">
+        <label for="deadline">Deadline</label>
+    </div>
+
+    <p th:text="${lessonId}">Lesson ID</p>
+
+    <button type="submit" class="btn btn-outline-success">Save</button>
+</form>
+
+</body>
+</html>

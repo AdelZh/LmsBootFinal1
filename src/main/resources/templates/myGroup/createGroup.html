@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New group</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/group/save/{companyId}(companyId=${companyId})}" th:object="${newGroup}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="dateOfStart" th:field="*{dateOfStart}">
+        <label for="dateOfStart">Date of Start</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="groupName" th:field="*{groupName}">
+        <label for="groupName">Group Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="image" th:field="*{image}">
+        <label for="image">Image</label>
+    </div>
+
+    <div class="mb-3">
+        <label for="courseId" class="form-label">Course:</label>
+        <select id="courseId" name="courseId" class="form-select" required>
+            <option th:each="course: ${allCourses}" th:value="${course.getId()}" th:text="${course.getCourseName() + ' - ' + course.getDuration()}"></option>
+        </select>
+        <input type="hidden" th:field="*{course.id}" />
+    </div>
+
+
+    <p th:text="${companyId}">Company ID</p>
+
+    <button type="submit" class="btn btn-outline-success">Save</button>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New group</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/group/save/{courseId}(courseId=${courseId})}" th:object="${newGroup}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="dateOfStart" th:field="*{dateOfStart}">
+        <label for="dateOfStart">Date of Start</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="groupName" th:field="*{groupName}">
+        <label for="groupName">Group Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="image" th:field="*{image}">
+        <label for="image">Image</label>
+    </div>
+
+
+
+    <p th:text="${courseId}">Course ID</p>
+
+    <button type="submit" class="btn btn-outline-success">Save</button>
+</form>
+</body>
+</html>-->
+

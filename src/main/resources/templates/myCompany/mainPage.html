@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px;
+            margin: 0;
+            background-image: url(https://img.sixt.com/1600/NEXXXT_stock_dubai-mall.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+        }
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .btn-primary,
+        .btn-success {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/company/get}" method="GET">
+        <div class="form-group">
+            <label for="searchInput">Search by:</label>
+            <input id="searchInput" name="parameter" class="form-control" placeholder="Enter Search Parameter">
+            <label>
+                <select name="type" class="form-select">
+                    <option value="companyName">companyName</option>
+                    <option value="locatedCountry">locatedCountry</option>
+                    <option value="id">ID</option>
+                </select>
+            </label>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <a class="btn btn-primary" href="/company/create" role="button">Add Company</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/company/get}" method="GET">
+    <label for="searchInput">Search by:</label>
+    <div class="input-group">
+        <input id="searchInput" name="parameter" class="form-control" placeholder="Enter Search Parameter">
+        <label>
+            <select name="type" class="form-select">
+                <option value="companyName">companyName</option>
+                <option value="locatedCountry">locatedCountry</option>
+                <option value="id">ID</option>
+            </select>
+        </label>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<a class="btn btn-primary" href="/company/create" role="button">Add Company</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>-->
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
+<body>
+
+
+<div class="container" style="width : 80%; margin: 0 auto">
+    <div class="card" style="width: 18rem;"
+         th:each="company:${getAllCompany}">
+
+        <img th:src="${company.getImage()}" class="card-img-top" alt="photo of usa">
+        <div class="card-body">
+            <h5 th:text="${company.getCompanyName()}" class="card-title">Lesson Name</h5>
+            <p th:text="${company.getLocatedCountry()}" class="card-text"></p>
+
+
+            <form th:method="DELETE" th:action="@{/company/{companyid}/delete (companyid=${company.getId()})}">
+                <input type="submit" th:value="Delete">
+            </form>
+
+            <a th:href="@{/company/{getById}/get (getById=${company.getId()})}">Get</a>
+
+            <a th:href="@{/company/{myId}/update (myId=${company.getId()})}">Update</a>
+
+
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-primary" href="/company/create" role="button">Add Company</a>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>-->
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" style="width : 80%; margin: 0 auto">
+    <div class="card" style="width: 18rem;" th:each="company:${getAllCompany}">
+        <img th:src="${company.getImage()}" class="card-img-top" alt="photo of usa">
+        <div class="card-body">
+            <h5 th:text="${company.getCompanyName()}" class="card-title">Lesson Name</h5>
+            <p th:text="${company.getLocatedCountry()}" class="card-text"></p>
+            <form th:method="DELETE" th:action="@{/company/{companyid}/delete (companyid=${company.getId()})}">
+                <input type="submit" th:value="Delete">
+            </form>
+            <a th:href="@{/company/{getById}/get (getById=${company.getId()})}">Get</a>
+            <a th:href="@{/company/{myId}/update (myId=${company.getId()})}">Update</a>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-primary" href="/company/create" role="button">Add Company</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>-->

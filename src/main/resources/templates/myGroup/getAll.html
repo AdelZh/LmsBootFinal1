@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Group Listing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 300px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .card-body {
+            text-align: left;
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            margin-top: 15px;
+            padding: 8px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-outline-info {
+            color: #007bff;
+            border: 2px solid #007bff;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="card" th:each="group: ${allGroup}">
+    <div class="card-header" th:text="${group.getId()}">ID</div>
+    <div class="card-body">
+        <div class="card-title" th:text="${group.groupName}">Name</div>
+        <div class="card-title" th:text="${group.getImage()}">LastName</div>
+        <div class="card-title" th:text="${group.getDateOfStart()}">Email</div>
+
+
+        <a th:href="@{group/delete/{groupId}(groupId=${group.getId})}">
+            <button class="btn btn-outline-info">Delete</button>
+        </a>
+
+        <a th:href="@{group/update/{groupId}(groupId=${group.getId()})}">
+            <button class="btn btn-outline-info">Update</button>
+        </a>
+
+        <a th:href="@{/group/{getById}/get/booking (getById=${group.getId()})}">Get</a>
+
+
+
+
+    </div>
+</div>
+
+<a th:href="@{/company}">
+    <button class="btn btn-outline-info">Exit</button>
+</a>
+
+</body>
+</html>

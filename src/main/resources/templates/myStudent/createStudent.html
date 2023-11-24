@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New instructor</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/student/save/{companyId}(companyId=${companyId})}" th:object="${newStudent}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="firstName" th:field="*{firstName}">
+        <label for="firstName">First Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+        <label for="lastName">Last Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="email" th:field="*{email}">
+        <label for="email">Email</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}">
+        <label for="phoneNumber">Phone Number</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="studyFormat" th:field="*{studyFormat}">
+        <label for="studyFormat">Study Format</label>
+    </div>
+
+
+    <p th:text="${companyId}">Company ID</p>
+
+    <button type="submit" class="btn btn-outline-success">Save</button>
+</form>
+
+</body>
+</html>

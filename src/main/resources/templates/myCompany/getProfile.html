@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.sixt.com/1600/NEXXXT_stock_dubai-mall.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .card {
+            width: 18rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .btn-container {
+            margin-top: 15px;
+        }
+
+        .btn {
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .btn-overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .btn-overlay:hover {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div th:if="${#lists.size(getCompanyById) > 0}" th:each="agency: ${getCompanyById}">
+            <div class="card">
+                <img th:src="${agency.getImage()}" class="card-img-top" alt="photo">
+                <div class="card-body">
+                    <h5 th:text="${agency.getCompanyName()}" class="card-title">Company Name</h5>
+                    <p th:text="${agency.getLocatedCountry()}" class="card-text"></p>
+
+                    <form th:method="DELETE" th:action="@{/company/{companyid}/delete(companyid=${agency.getId()})}">
+                        <input type="submit" th:value="Delete">
+                    </form>
+
+                    <a th:href="@{/company/{getById}/get(getById=${agency.getId()})}">Get</a>
+
+                    <a th:href="@{/company/{myId}/update(myId=${agency.getId()})}">Update</a>
+
+                </div>
+            </div>
+
+
+                <button type="submit" class="btn btn-primary"><a href="/company" style="color: #fff; text-decoration: none;">Back to main</a></button>
+            </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+</head>
+<body>
+
+
+<form th:method="GET" th:action="@{/company/{getById}/get (getById=${getCompanyById.getId()}) th:object=${getCompanyById}}">
+    <div class="card" style="width: 18rem;">
+
+
+        <img th:src="${getCompanyById.getImage()}" class="card-img-top" alt="photo of usa">
+        <div class="card-body">
+            <h5 th:text="${getCompanyById.getCompanyName()}" class="card-title">Company Name</h5>
+            <p th:text="${getCompanyById.getLocatedCountry()}" class="card-text"></p>
+        </div>
+    </div>
+
+
+    <a class="btn btn-outline-success" th:href="@{/course}" role="button">All course</a>
+
+    <a class="btn btn-outline-success" th:href="@{/instructor}" role="button">All instructor</a>
+    <a class="btn btn-outline-success" th:href="@{/student}" role="button">All Student</a>
+
+
+    <button type="submit"><a href="/company">Back to Company</a></button>
+
+
+    <div class="btn-container">
+        <a class="btn btn-warning" th:href="@{/course/create/{companyId}(companyId=${getCompanyById.getId()})}" role="button">Add new course</a>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn btn-warning" th:href="@{/instructor/create/{companyId}(companyId=${getCompanyById.getId()})}" role="button">Add new Instructor</a>
+    </div>
+
+
+    <div class="btn-container">
+        <a class="btn btn-warning" th:href="@{/student/create/{companyId}(companyId=${getCompanyById.getId()})}" role="button">Add new Student</a>
+    </div>
+
+</form>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>-->

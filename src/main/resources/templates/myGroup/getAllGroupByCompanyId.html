@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+        }
+
+        button[type="submit"], .btn-primary {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        button[type="submit"]:hover, .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="card" th:each="group: ${GroupByCompany}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${group.getCourse().getId()}">groupName</h5>
+            <h5 class="card-title" th:text="${group.getGroupName()}">groupName</h5>
+            <p class="card-text" th:text="${group.getDateOfStart()}">Date of start</p>
+            <p class="card-text" th:text="${group.getImage()}">Image</p>
+
+
+        </div>
+
+        <a th:href="@{group/delete/{groupId}(groupId=${group.getId})}">
+            <button class="btn btn-outline-info">Delete</button>
+        </a>
+
+        <a th:href="@{/group/update/{groupId}(groupId=${group.id})}">
+            <button class="btn btn-outline-info">Update</button>
+        </a>
+
+        <a th:href="@{/group/{getById}/get/booking (getById=${group.getId()})}">Get</a>
+
+
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<form th:method="POST" th:action="@{/course/merge/{courseId}(courseId=${course.getId()})}" th:object="${course}">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="courseName" th:field="*{courseName}">
+        <label for="courseName">courseName</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="description" th:field="*{description}">
+        <label for="description">description</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="duration" th:field="*{duration}">
+        <label for="duration">duration</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Update</button>
+</form>
+</body>
+</html>
